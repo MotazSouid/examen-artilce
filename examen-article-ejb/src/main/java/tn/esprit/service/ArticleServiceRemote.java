@@ -13,7 +13,7 @@ public interface ArticleServiceRemote {
 	
 	public void ajouterCategorie(Categorie cat);
 	
-	public void ajouterArticle(Article article);
+	public int ajouterArticle(Article article);
 	
 	public void ajouterCommande(Commande commande);
 	

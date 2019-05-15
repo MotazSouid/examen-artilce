@@ -2,6 +2,7 @@ package tn.esprit.managedBean;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -24,6 +25,11 @@ public class examenBean {
 	@EJB
 	ArticleServiceRemote examenService;
 	
+	@PostConstruct
+	void init(){
+		categories = examenService.getAllCategories();
+	}
+
 	public String ajouterArticle()
 	{
 		Article article = new Article();
@@ -31,15 +37,14 @@ public class examenBean {
 		article.setImage(image);
 		article.setNom(nomArt);
 		article.setPrix(prix);
-		examenService.ajouterArticle(article);
-		int id = examenService.getArticleId(nomArt);
+		int id = examenService.ajouterArticle(article);
 		examenService.affecteArtCat(idCategorie, id);
 		return "ajouterArticle?faces-redirect=true";
 	}
 	
 	public String goToCategorie()
 	{
-		categories = examenService.getAllCategories();
+		
 		return "ajouterArticle?faces-redirect=true";
 	}
 	public void ajouterCategory()

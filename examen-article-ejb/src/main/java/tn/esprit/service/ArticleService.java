@@ -34,9 +34,9 @@ public class ArticleService implements ArticleServiceRemote, ArticleServiceLocal
 	}
 
 	@Override
-	public void ajouterArticle(Article article) {
-		em.persist(article);
-		
+	public int ajouterArticle(Article article) {
+		  em.persist(article);
+		 return article.getIdart();
 	}
 
 	@Override
