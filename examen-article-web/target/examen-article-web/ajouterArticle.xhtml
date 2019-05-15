@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets" template="/template/template.xhtml"
+                xmlns:p="http://java.sun.com/jsf/html">
+<ui:param name="page_name" value="Connexion" />
+<ui:define name="menu">
+<h:form id="form">
+
+<h:form>
+    <h:panelGrid columns="4" cellpadding="5">
+        <h:outputLabel for="name" value="Nom: " style="font-weight:bold" />
+        <p:inputText id="name" value="#{examenBean.nomCat}" />
+        <h:outputLabel  value="Prix: " style="font-weight:bold" />
+        <p:inputText id="prix" value="#{examenBean.prix}" />
+        <h:outputLabel  value="Image: " style="font-weight:bold" />
+        <p:inputText id="image" value="#{examenBean.image}" />
+        <h:selectOneMenu value="#{examenBean.idCategorie}" >
+			<f:selectItems value="#{examenBean.categories}" 
+				var="cat" itemValue="#{cat.idcat}" 
+				itemLabel="#{cat.nomcat}" />
+		</h:selectOneMenu>
+        
+        <p:commandButton value="Ajouter Categorie" action="#{examenBean.ajouterArticle()}" />
+    </h:panelGrid>
+</h:form>
+
+</h:form>
+</ui:define>
+</ui:composition>

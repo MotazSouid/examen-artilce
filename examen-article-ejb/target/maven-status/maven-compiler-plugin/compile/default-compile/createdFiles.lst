@@ -1,0 +1,7 @@
+tn\esprit\service\ArticleServiceLocal.class
+tn\esprit\service\ArticleService.class
+tn\esprit\entities\Categorie.class
+tn\esprit\entities\Article.class
+tn\esprit\service\ArticleServiceRemote.class
+tn\esprit\entities\Commande.class
+tn\esprit\entities\Status.class
